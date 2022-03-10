@@ -3,6 +3,8 @@ from os.path import join, dirname
 from dotenv import load_dotenv
 from pymongo import MongoClient
 
+import db_collections
+
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
 
@@ -31,15 +33,3 @@ laureate_fields = list(laureate.keys())
 
 print(prize_fields)
 print(laureate_fields)
-
-# Filters
-db.laureates.count_documents({"birth.date": {"$lt": "1900"}})
-
-db.laureates.find_one({"givenName.en": "Walter", "familyName.en": "Kohn"})
-
-criteria = {"birth.country"}, 
-            "countryNow.en": "USA", 
-            "knownName": "Albert"}
-
-# Save the count
-db.laureates.count_documents(criteria)
