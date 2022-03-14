@@ -9,9 +9,9 @@ import db_collections
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
 
-# Client connects to "localhost" by default
+# Client
 client = MongoClient(env['MONGODB_CON_STR'])
-# Create local "nobel" database on the fly
+# Connect to nobel database
 db = client.nobel
 
 # Simple filters
