@@ -1,19 +1,9 @@
-from os import environ as env
-from os.path import join, dirname
-from dotenv import load_dotenv
-from matplotlib import projections
-from pymongo import MongoClient
-
-from timeit import timeit
-
-import db_collections
-
-dotenv_path = join(dirname(__file__), '.env')
-load_dotenv(dotenv_path)
+import db_collections as custom
 
 # Client 
-client = MongoClient(env['MONGODB_CON_STR'])
-# Connect nobel database 
+nobelPrizeApi = custom.nobelPrizeApi()
+client = nobelPrizeApi.connect_MongoDB()
+# Connect to nobel database
 db = client.nobel
 
 # Limiting
